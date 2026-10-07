@@ -24,5 +24,7 @@ The model will try to ask anyway. These are the usual holes.
 | Empty AskUserQuestion result | Tool can auto-submit blank in skill or command context | Treat as no answer. Take Recommended |
 | Waiting on the user to confirm a test | User is not the evaluator | Run the test. Reflect on the failure. Retry |
 | Copying an interview skill into this one | feature-interview and grill-me are a different school | Do not round-trip questions unless they asked to be interviewed |
+| Naming a file you did not open | Draft with no quote | Retract. Grep, then quote the line, or say it is not in the tree |
+| Asking the user if your path is right | CoVe check aimed at the user | Answer the check from the file |
 
 If you wrote a question and then noticed it matches this table, delete the question and look or assume.

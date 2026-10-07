@@ -46,6 +46,27 @@ From agent thinking-tool skills. Run them silently.
 
 A check that fails is not a question for the user.
 
+## Verify the claim, then speak
+
+Hallucination survey (Tonmoy et al., arXiv:2401.01313) and Anthropic's reduce-hallucinations guide agree on the coding move. The user is not the checker.
+
+Chain-of-Verification: draft the answer, write the check, answer the check without rereading the draft, keep only what agrees.
+
+Anthropic: a claim needs a quote. No quote, retract it. "Not in the repo" is allowed. Inventing a path is not.
+
+For this skill, one check, not a second full generation:
+
+```
+Claim: orders handler is apps/api/src/orders/create.ts
+Check: Grep POST /orders
+Quote: create.ts:41 router.post("/orders"
+Keep: yes
+```
+
+No quote: drop the claim. Look once more, or say it is not in the tree and assume the smallest reversible place. Do not ask "is this the right file?"
+
+Ask the user only when the evidence is missing and the fact is theirs (MixAlign's exception, not the default). A secret, a product fork, a destructive go-ahead. Not a path, a flag, or a test command.
+
 ## What not to import
 
 - Interview loops that ask 5–10 rounds before code. Those skills say so. This one does not.
