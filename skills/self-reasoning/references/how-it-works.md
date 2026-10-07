@@ -67,6 +67,19 @@ No quote: drop the claim. Look once more, or say it is not in the tree and assum
 
 Ask the user only when the evidence is missing and the fact is theirs (MixAlign's exception, not the default). A secret, a product fork, a destructive go-ahead. Not a path, a flag, or a test command.
 
+## Failure class, not a score
+
+Langflow discussion 12111: a single "hallucination rate" is too broad. Name the miss, then fix that miss. Do not ask the user which class it is.
+
+| Class | In this skill | Fix |
+| --- | --- | --- |
+| Unsupported claim | Named a file, flag, or command with no quote | Retract. Grep or Read. |
+| Retrieval miss | The fact is in the tree and you did not search | Look. Do not abstain yet. |
+| Abstention miss | Not in the tree, and you invented a path anyway | Say it is not there. Assume the smallest reversible place. |
+| Citation mismatch | You cited a file, and the line does not say what you claimed | Drop the claim. Read the line again. |
+
+Do not import the rest of that thread. Three sampled runs, Langfuse judges, and KL drift are production evals. This skill gets one quote from a tool it already called. Verify paths, commands, and code that will run. Skip the check on chatty status lines.
+
 ## What not to import
 
 - Interview loops that ask 5–10 rounds before code. Those skills say so. This one does not.
