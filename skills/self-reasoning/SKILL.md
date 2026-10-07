@@ -1,6 +1,12 @@
 ---
 name: self-reasoning
 description: Look first, ask last. Before AskUserQuestion or any clarifying question, search the repo, git, tests, local docs, and public vendor docs, then either do the work or state one assumption. Use on implement, fix, debug, refactor, review, plan, and ship work, when two approaches exist, when Claude is about to ask which file, which library, or which approach, or when the user says don't ask, just do it, figure it out, stop interrupting, or stop asking. Do not use when the user explicitly wants an interview, a spec workshop, grill-me, or a product or taste decision only they can make.
+hooks:
+  PreToolUse:
+    - matcher: "AskUserQuestion"
+      hooks:
+        - type: command
+          command: "python3 ./scripts/ask-gate.py"
 ---
 
 # Self Reasoning
@@ -106,6 +112,7 @@ Convert each stall to an action. Full table: [references/ask-gate.md](references
 ## Claude Code
 
 - `AskUserQuestion` is last resort, not an interview loop. Interview skills are a different school.
+- A `PreToolUse` hook denies the tool unless the question has `Looked:` and `Recommended:`, one question, and no stall phrasing. A denial is final for that question. Do not ask it in prose. See [references/hooks.md](references/hooks.md).
 - Plan mode: one real product fork is allowed before the plan. Approval is exit-plan, not a question.
 - Subagents and background loops: never ask. Assume and report.
 - User said "don't ask" or "just do it": `Action` cannot be `ask` for the rest of the turn.

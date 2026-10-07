@@ -28,5 +28,6 @@ The model will try to ask anyway. These are the usual holes.
 | Asking the user if your path is right | CoVe check aimed at the user | Answer the check from the file |
 | "I couldn't find it" before Grep | Retrieval miss dressed up as abstention | Search, then abstain |
 | Cited `create.ts` but the line is a comment | Citation mismatch | Read the line. Drop the claim |
+| Hook denied the ask | The gate ran. You do not get a vote | Look or assume. Do not rephrase the question in chat |
 
 If you wrote a question and then noticed it matches this table, delete the question and look or assume.
