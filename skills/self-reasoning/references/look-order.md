@@ -46,7 +46,9 @@ Then run the narrowest matching command.
 ## Stop
 
 - One pattern: copy it.
-- Two patterns: same-package wins. State it.
-- Nothing after a bounded look: assume and implement in the smallest place that compiles.
+- Two patterns: same-package wins. Write both candidates, keep the one a file supports, discard the other in one line. Do not ask.
+- Nothing after a bounded look: assume the smallest change that compiles (additive, flag off, no delete).
+
+On a red test or type error: one failure line, then retry. Do not ask if the failure is real.
 
 Bounded look = one Grep or Glob + one neighbor or house file. Then decide.

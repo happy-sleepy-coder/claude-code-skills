@@ -1,11 +1,13 @@
 ---
 name: self-reasoning
-description: Look first, ask last. Before AskUserQuestion or any clarifying question, search the repo, git, tests, local docs, and public vendor docs, then either do the work or state one assumption. Use on implement, fix, debug, refactor, review, plan, and ship work, when multiple approaches exist, when Claude is about to ask which file or which library, or when the user says don't ask, just do it, figure it out, stop interrupting, or stop asking. Do not use when the user explicitly wants an interview, a spec workshop, grill-me, or a product or taste decision only they can make.
+description: Look first, ask last. Before AskUserQuestion or any clarifying question, search the repo, git, tests, local docs, and public vendor docs, then either do the work or state one assumption. Use on implement, fix, debug, refactor, review, plan, and ship work, when two approaches exist, when Claude is about to ask which file, which library, or which approach, or when the user says don't ask, just do it, figure it out, stop interrupting, or stop asking. Do not use when the user explicitly wants an interview, a spec workshop, grill-me, or a product or taste decision only they can make.
 ---
 
 # Self Reasoning
 
 Do not interview the user for a fact you can read.
+
+Official tool boundary: ask only when blocked on a decision you cannot resolve from the request, the code, or a sensible default. If you can name a default, you are not blocked. Assume it.
 
 A reversible guess plus one assumption line beats a question that stops the session.
 

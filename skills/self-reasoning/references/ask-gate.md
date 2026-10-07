@@ -4,7 +4,9 @@ description: "When a question is allowed vs forbidden. Read before AskUserQuesti
 
 # Ask gate
 
-Ask only if every line is true:
+Blocked means all three failed: the request does not say, the code does not pick, and no sensible default exists. Claude Code's own rule for `AskUserQuestion` is that sentence. If you can name a default, you are not blocked.
+
+Ask only if every line is also true:
 
 1. Cheap undo is false — a wrong call here is hard to reverse.
 2. You already searched the request, the repo, git, and public docs.
@@ -12,7 +14,7 @@ Ask only if every line is true:
 4. No safe default exists.
 5. The user is the only person who knows.
 
-If any line is false, look or assume.
+If any line is false, look or assume. "When in doubt, ask" is the other school. Doubt after a bounded look is an assumption.
 
 ## Cheap undo
 
@@ -76,7 +78,13 @@ Empty or tiny repo, no sibling pattern:
 
 ## Question shape
 
-One question. Recommended first. Evidence line required.
+One question. The tool allows up to four. This skill allows one. Two only if they are independent and both user-owned. Never a second round.
+
+Recommended option first. End that label with `(Recommended)`. Header at most 12 characters. 2–4 options. Do not list "Other". The UI adds it.
+
+Do not ask "is the plan OK?", "should I proceed?", or anything that mentions "the plan". Approval is `ExitPlanMode`.
+
+Empty result (skill and command context can auto-submit blank, issue 29674): no answer. Take Recommended and say so in one sentence. Do not ask again.
 
 ```
 Looked: <tools and paths>
