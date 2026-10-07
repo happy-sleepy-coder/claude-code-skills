@@ -53,6 +53,20 @@ You found `src/auth/session.ts` and its test. Do not confirm. Edit it.
 
 The log is in the terminal or `gh run view`. Read it.
 
+## Two approaches, no question
+
+Bad: "JWT or sessions?"
+
+Good: sibling `apps/web` already uses session cookies. Candidate B was JWT. Drop B.
+
+`Assumption: session cookies, same as apps/web/src/auth/session.ts.`
+
+## Red test
+
+Bad: "The test failed. Want me to change the assertion?"
+
+Good: read the assertion, fix the code or the wrong expected value, rerun. One line: `Failed: create.test.ts expected 201, got 500. Retrying the nil inventory path.`
+
 ## Greenfield "build a CLI"
 
 `package.json` already has `"bin"` and commander. Do not ask framework. Extend the existing CLI.
