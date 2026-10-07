@@ -32,6 +32,9 @@ Rules:
 3. Keep the candidate the files support. Discard the other in one line. Do not poll the user to break the tie.
 4. After a bounded look, set `Action` to `assume` unless the user is the only person who knows.
 5. `ask` needs an evidence line in the question itself (see below).
+6. A claim about this repo needs a path you opened. No path: retract it. Do not ask the user to confirm a path you invented.
+
+Verify before you state a file, flag, command, or API: one quote from Read, Grep, or the vendor page. Chain-of-Verification (draft, then check without looking at the draft) and Anthropic's "no quote, retract" rule are the same move. Details: [references/how-it-works.md](references/how-it-works.md).
 
 Bounded look: one targeted Grep or Glob, the obvious neighbor file or test, the house file (`CLAUDE.md`, package manifest, CI). Not a repo tour.
 
